@@ -1,0 +1,9 @@
+VUE
+
+<template> (DELIMITA ONDE SERÁ HTML)
+
+====================
+QUESTIONÁRIO
+Framework progressivo focado no desenvolvimento Front-End, possui módulos para manipulação de rotas (Vue Router) e também state (Vuex).
+
+É uma seção do código q pode ser reutilizada em diferetes partes do código. Evitando a reescrita da mesma.
