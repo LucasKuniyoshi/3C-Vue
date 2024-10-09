@@ -2,11 +2,47 @@ VUE
 
 <template> (DELIMITA ONDE SERÁ HTML)
 
+V-IF E V-ELSE TEM Q SER UM SEGUIDO DO OUTRO
+<p v-if="esta_trabalhando">Estou trabalhando no momento.</p>
+<p v-else>Não estou trabalhando</p>
+
+V-SHOW => mostra ou n mostra
+<p v-show="mostrar_email">Mande uma mensagem para: {{ email }}</p>
+
+V-BIND => RECONHECE O LINK COMO LINK E N COMO ESCRITA
+target="_blank => AO CLICAR NO LINK ABRE UMA OUTRA PÁGINA, NÃO A MESMA 
+<p><a v-bind:href="meu_link" target="_blank">basta clicar aqui</a></p>
+
+(v-bind: == :)
+<img v-bind:src="avatar" v-bind:alt="descricao"> == <img :src="avatar" :alt="descricao">
+
+===========================================
+LÓGICA COM ELEMENTOS BOOL E TROCA DE VALORES
+mostrar_email: false,
+showEmail(){
+            this.mostrar_email = !this.mostrar_email
+        }
+
+(ELEMENTOS APARECEM NA VERTICAL)
+INDEX => INDICE DE CADA ELEMENTO // technology => ELEMENTO
+<ul v-for="(technology, index) in backend_technologies" v-bind:key="index">
+
+(ELEMENTOS APARECEM NA HORIZONTAL)
+<li v-for="(technology, index) in backend_technologies" v-bind:key="index">{{ technology }}</li>
+
+@SUBMIT => DA RELOAD NA PÁGINA
+<form action="" @submit="enviarFormulario">
+
 ====================
 QUESTIONÁRIO
 Framework progressivo focado no desenvolvimento Front-End, possui módulos para manipulação de rotas (Vue Router) e também state (Vuex).
 
 É uma seção do código q pode ser reutilizada em diferetes partes do código. Evitando a reescrita da mesma.
+
+
+
+setTimeOut: delimita o tempo q um elemento existe em tela, comumente usado como loader quando necessário pegar algo do banco e jogar na aplicação.
+
 
 =======================
 AXIOS

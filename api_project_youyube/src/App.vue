@@ -19,7 +19,7 @@ nav {
   display: flex;
   justify-content: space-around;
   background-color: #ff6347;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 nav a {
