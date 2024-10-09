@@ -1,8 +1,14 @@
+
 <template>
   <div id="app">
     <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/favorites">Favoritos</router-link>
+      <div class="logo">
+        <figure>
+          <router-link to="/">
+            <img src="./assets/Pokedex.png" alt="pokedex">
+          </router-link>
+        </figure>
+      </div>
     </nav>
     <router-view />
   </div>
@@ -16,10 +22,15 @@ export default {
 
 <style scoped>
 nav {
-  display: flex;
-  justify-content: space-around;
   background-color: #ff6347;
-  /* padding: 10px; */
+  padding: 10px;
+  margin: -7.8px;
+}
+
+nav div{
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
 }
 
 nav a {
@@ -28,7 +39,19 @@ nav a {
   font-weight: bold;
 }
 
+nav img {
+  height: 60px;
+  width: 200px;
+}
+
 nav a:hover {
   text-decoration: underline;
+}
+
+.logo{
+  background: url('assets/logo.png');
+  width: 948px;
+  zoom: 160%;
+  border-radius: 7px;
 }
 </style>

@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <div class="fav">
+      <router-link to="/favorites">Favoritos</router-link>
+    </div>
     <h1>Lista de Pokémons</h1>
     <ul class="pokemon-list">
       <li v-for="pokemon in pokemons" :key="pokemon.name" class="pokemon-item">
@@ -62,6 +65,12 @@ export default {
     text-align: center;
   }
   
+  .fav{
+    display: flex;
+    justify-content: end;
+    border: 2px;
+  }
+
   h1 {
     color: #ff6347;
     margin-bottom: 20px;
@@ -87,4 +96,5 @@ export default {
   a:hover {
     text-decoration: underline;
   }
+
   </style>
