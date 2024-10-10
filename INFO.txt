@@ -1,4 +1,11 @@
 VUE
+vue create . (CRIA NOVO PROJETO VUE)
+npm run serve
+https://github.com/matheusbattisti/curso_vue_yt
+
+npm run backend (MOSTRA TUDO OS JSON)
+
+==========================================
 
 <template> (DELIMITA ONDE SERÁ HTML)
 
@@ -13,8 +20,12 @@ V-BIND => RECONHECE O LINK COMO LINK E N COMO ESCRITA
 target="_blank => AO CLICAR NO LINK ABRE UMA OUTRA PÁGINA, NÃO A MESMA 
 <p><a v-bind:href="meu_link" target="_blank">basta clicar aqui</a></p>
 
+V-BIND => para ações/dados dinâmicos
 (v-bind: == :)
 <img v-bind:src="avatar" v-bind:alt="descricao"> == <img :src="avatar" :alt="descricao">
+
+<router-view/> <!-- a view é impressa aqui (ela q chama os router-links das outras classes)-->
+
 
 ===========================================
 LÓGICA COM ELEMENTOS BOOL E TROCA DE VALORES
@@ -39,7 +50,7 @@ Framework progressivo focado no desenvolvimento Front-End, possui módulos para 
 
 É uma seção do código q pode ser reutilizada em diferetes partes do código. Evitando a reescrita da mesma.
 
-
+Possibilitam passar dados de um componente para outro
 
 setTimeOut: delimita o tempo q um elemento existe em tela, comumente usado como loader quando necessário pegar algo do banco e jogar na aplicação.
 

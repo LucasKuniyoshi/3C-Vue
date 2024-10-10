@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <Header :esta_logado="esta_logado"/>
   <PrimeiroComponente />
   <p class="paragrafo-pai">O dado de app é: {{ testando }}</p>
   <LifeCycle />
@@ -24,7 +24,8 @@ import Header from './components/Header.vue'
     },
     data(){
       return{
-        testando: "Teste"
+        testando: "Teste",
+        esta_logado: true
       }
     }
   }

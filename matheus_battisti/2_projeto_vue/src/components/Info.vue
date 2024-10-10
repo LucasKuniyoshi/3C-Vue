@@ -27,11 +27,15 @@ export default {
     components: {
         Picture
     },
+    props:{
+        email: String,
+        esta_trabalhando: Boolean
+    },
     data(){
         return{
-            esta_trabalhando: false,
+            // esta_trabalhando: false,
             mostrar_email: false,
-            email: 'kunideus@gmail.com',
+            // email: 'kunideus@gmail.com',
             meu_link: 'https://github.com/LucasKuniyoshi',
             textoBotao: 'Mostrar e-mail',
             backend_technologies: ['JavaScript', 'PHP', 'Python'],
