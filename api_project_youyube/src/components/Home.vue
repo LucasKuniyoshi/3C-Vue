@@ -6,7 +6,9 @@
     <h1>Lista de Pokémons</h1>
     <ul class="pokemon-list">
       <li v-for="pokemon in pokemons" :key="pokemon.name" class="pokemon-item">
-        <span>{{ pokemon.name }}</span>
+        <img :src="pokemon.image" :alt="pokemon.image">
+        <h3>{{ pokemon.name }}</h3>
+        <span>{{ pokemon.abilities }}</span> <!-- QUERO IMPRIMIR SUAS ABILIDADES E SUA IMAGEM TAMBÉM --> 
         <button @click="toggleFavorite(pokemon)" :class="{ favorited: isFavorited(pokemon) }">
           {{ isFavorited(pokemon) ? '★ Favorito' : '☆ Favoritar' }}
         </button>
@@ -37,7 +39,22 @@ export default {
     async fetchPokemons() {
       try {
         const response = await getPokemons(10);
-        this.pokemons = response.data.results;
+        const results = response.data.results;
+
+        // Para cada Pokémon, faz uma segunda requisição para obter mais detalhes
+        const pokemonsWithDetails = await Promise.all(
+          results.map(async (pokemon) => {
+            const res = await fetch(pokemon.url); // faz uma requisição para a URL de detalhes do Pokémon
+            const details = await res.json();
+            return {
+              name: pokemon.name,
+              abilities: details.abilities.map((a) => a.ability.name).join(', '), // lista de habilidades
+              image: details.sprites.front_default, // imagem do Pokémon
+            };
+          })
+        );
+
+        this.pokemons = pokemonsWithDetails;
       } catch (error) {
         console.error('Erro ao buscar os pokémons:', error);
       }
@@ -95,6 +112,17 @@ export default {
   
   a:hover {
     text-decoration: underline;
+  }
+
+  .pokemon-list{
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+  }
+
+  .pokemon-item{
+    margin: 10px;
+    border: 2px solid red;
   }
 
   </style>
