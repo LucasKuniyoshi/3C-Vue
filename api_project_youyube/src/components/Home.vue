@@ -116,8 +116,8 @@ export default {
 
   .pokemon-list{
     display: flex;
-    flex-direction: row;
-    /* flex-wrap: wrap; */
+    /*flex-direction: row;*/
+    flex-wrap: wrap;
   }
 
   .pokemon-item{
