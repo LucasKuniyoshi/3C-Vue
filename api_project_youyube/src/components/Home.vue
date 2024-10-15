@@ -1,24 +1,22 @@
 <template>
   <div class="container">
     <div class="fav">
-      <router-link to="/favorites">Favoritos</router-link>
+      <router-link id="backbutton" to="/favorites">
+        Favoritos
+        <img id="starFav" src="../assets/StarFav.png" alt="StarIcon">
+      </router-link>
     </div>
-    <h1>Lista de Pokémons</h1>
+    <h1 style="margin-top: -58px; margin-bottom: 45px;">Lista de Pokémons</h1>
     <ul class="pokemon-list">
       <li v-for="pokemon in pokemons" :key="pokemon.name" class="pokemon-item">
-        <img :src="pokemon.image" :alt="pokemon.image">
-        <h3>{{ pokemon.name }}</h3>
-        <span>{{ pokemon.abilities }}</span> <!-- QUERO IMPRIMIR SUAS ABILIDADES E SUA IMAGEM TAMBÉM --> 
-        <button @click="toggleFavorite(pokemon)" :class="{ favorited: isFavorited(pokemon) }">
-          {{ isFavorited(pokemon) ? '★ Favorito' : '☆ Favoritar' }}
+        <img :src="pokemon.image" :alt="pokemon.image" class="poke-img">
+        <h3 class="poke-name">{{ pokemon.name }}</h3>
+        <!-- <h5>{{ pokemon.abilities }}</h5> QUERO IMPRIMIR SUAS ABILIDADES E SUA IMAGEM TAMBÉM  -->
+        <button id="fav-button" @click="toggleFavorite(pokemon)" :class="{ favorited: isFavorited(pokemon) }">
+          {{ isFavorited(pokemon) ? 'Favorito ★' : 'Favoritar ☆' }}
         </button>
       </li>
     </ul>
-    <h2>Pokémons Favoritos</h2>
-    <ul v-if="favorites.length" class="favorites-list">
-      <li v-for="pokemon in favorites" :key="pokemon.name">{{ pokemon.name }}</li>
-    </ul>
-    <p v-else>Nenhum Pokémon favoritado ainda.</p>
   </div>
 </template>
 
@@ -76,16 +74,37 @@ export default {
 
 <style scoped>
   .container {
-    max-width: 600px;
+    max-width: auto;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+    margin-bottom: 20px;
   }
   
   .fav{
     display: flex;
     justify-content: end;
     border: 2px;
+  }
+
+  #fav-button{
+    color: red;
+    background-color: #ffffff;
+    border: 1px solid red;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-bottom: 3px;
+    margin-top: -10px;
+  }
+
+  #starFav{
+    height: 20px;
+    width: 20px;
+  }
+
+  #fav-button:hover{
+    background-color: red;
+    color: #FFF;
   }
 
   h1 {
@@ -103,26 +122,48 @@ export default {
     margin-bottom: 10px;
   }
   
-  a {
+  #backbutton {
     display: inline-block;
     margin-top: 20px;
     text-decoration: none;
-    color: #007bff;
+    color: #ff6347;
+    border: 2px solid #ff6347;
+    border-radius: 7px;
+    padding: 1.2em;
   }
   
-  a:hover {
-    text-decoration: underline;
+  #backbutton:hover {
+    background-color: #ff6347;
+    color: #FFF;
+    border: 2px solid #FFF;
+    transition: .5s;
   }
 
   .pokemon-list{
+    list-style: none;
+    padding: 0;
     display: flex;
+    justify-content: center;
     /*flex-direction: row;*/
     flex-wrap: wrap;
+    margin: 0;
   }
 
   .pokemon-item{
+    height: 200px;
+    width: 300px;
     margin: 10px;
     border: 2px solid red;
+    border-radius: 7px;
+  }
+
+  .poke-name{
+    margin-top: -10px;
+  }
+
+  .poke-img{
+    height: 160px;
+    width: 160px;
   }
 
   </style>
