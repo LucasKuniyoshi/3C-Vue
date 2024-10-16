@@ -8,9 +8,11 @@
     </div>
     <h1 style="margin-top: -58px; margin-bottom: 45px;">Lista de Pokémons</h1>
     <ul class="pokemon-list">
-      <li v-for="pokemon in pokemons" :key="pokemon.name" class="pokemon-item">
-        <img :src="pokemon.image" :alt="pokemon.image" class="poke-img">
-        <h3 class="poke-name">{{ pokemon.name }}</h3>
+      <li v-for="pokemon in pokemons" :key="pokemon.name" class="pokemon-item"> 
+        <router-link :to="'/pokemon/' + pokemon.id">
+          <img :src="pokemon.image" :alt="pokemon.image" class="poke-img">
+          <h3 class="poke-name">{{ pokemon.name }}</h3>
+        </router-link>
         <!-- <h5>{{ pokemon.abilities }}</h5> QUERO IMPRIMIR SUAS ABILIDADES E SUA IMAGEM TAMBÉM  -->
         <button id="fav-button" @click="toggleFavorite(pokemon)" :class="{ favorited: isFavorited(pokemon) }">
           {{ isFavorited(pokemon) ? 'Favorito ★' : 'Favoritar ☆' }}
@@ -36,7 +38,7 @@ export default {
   methods: {
     async fetchPokemons() {
       try {
-        const response = await getPokemons(10);
+        const response = await getPokemons(20); //LIMITA OS POKEMONS EXIBIDOS
         const results = response.data.results;
 
         // Para cada Pokémon, faz uma segunda requisição para obter mais detalhes
@@ -45,6 +47,7 @@ export default {
             const res = await fetch(pokemon.url); // faz uma requisição para a URL de detalhes do Pokémon
             const details = await res.json();
             return {
+              id: details.id, // Use o ID do Pokémon para a URL dinâmica
               name: pokemon.name,
               abilities: details.abilities.map((a) => a.ability.name).join(', '), // lista de habilidades
               image: details.sprites.front_default, // imagem do Pokémon
@@ -59,14 +62,14 @@ export default {
     },
     toggleFavorite(pokemon) {
       if (this.isFavorited(pokemon)) {
-        this.favorites = this.favorites.filter(fav => fav.name !== pokemon.name);
+        this.favorites = this.favorites.filter(fav => fav.id !== pokemon.id); // Use o ID para identificar o Pokémon
       } else {
-        this.favorites.push(pokemon);
+        this.favorites.push(pokemon); // Certifique-se de que o ID é armazenado junto com o Pokémon
       }
       localStorage.setItem('favorites', JSON.stringify(this.favorites));
     },
     isFavorited(pokemon) {
-      return this.favorites.some(fav => fav.name === pokemon.name);
+      return this.favorites.some(fav => fav.id === pokemon.id); // Verifica pelo ID
     },
   },
 };

@@ -2,10 +2,12 @@
     <div class="container">
       <h1>Pokémons Favoritos</h1>
       <ul v-if="favorites.length" class="favorites-list">
-        <li v-for="pokemon in favorites" :key="pokemon.name" class="pokemon-item">  
+        <li v-for="pokemon in favorites" :key="pokemon.id" class="pokemon-item">  
           <div>
-            <img :src="pokemon.image" :alt="pokemon.image">
-            <h3>{{ pokemon.name }}</h3>
+            <router-link :to="'/pokemon/' + pokemon.id">
+              <img :src="pokemon.image" :alt="pokemon.image">
+              <h3>{{ pokemon.name }}</h3>
+            </router-link>
           </div>
         </li> 
       </ul>
@@ -20,6 +22,9 @@
       <div class="fav">
         <router-link id="backbutton" to="/">Voltar à Lista de Pokémons</router-link>
       </div>
+      <button @click="resetFavorites" v-if="favorites.length" class="reset-btn">
+      Resetar Favoritos
+    </button>
     </div>
   </template>
   
@@ -29,6 +34,12 @@
       return {
         favorites: JSON.parse(localStorage.getItem('favorites')) || [],
       };
+    },
+    methods: {
+      resetFavorites() {
+        localStorage.removeItem('favorites'); // Remove os favoritos do localStorage
+        this.favorites = []; // Atualiza a lista de favoritos
+      },
     },
   };
   </script>
@@ -94,5 +105,18 @@
   .noFav{
     border: 2px solid purple;
   }
+
+  .reset-btn {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.reset-btn:hover {
+  background-color: darkred;
+}
   </style>
   
