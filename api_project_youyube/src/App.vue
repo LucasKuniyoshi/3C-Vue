@@ -10,8 +10,10 @@
         </figure>
       </div>
     </nav>
-    <router-view />
-    <Footer />
+    <div class="bodyBackground">
+      <router-view />
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -60,4 +62,11 @@ nav a:hover {
   zoom: 160%;
   border-radius: 7px;
 }
+
+/* .bodyBackground{
+  background: url('assets/PokemonBackground.jpeg');
+  height: auto;
+  width: auto;
+  scroll-behavior: auto;
+} */
 </style>

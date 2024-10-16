@@ -3,7 +3,7 @@
     <div class="fav">
       <router-link id="backbutton" to="/favorites">
         Favoritos
-        <img id="starFav" src="../assets/StarFav.png" alt="StarIcon">
+        <img id="starFav" src="../assets/WhiteStar.png" alt="StarIcon">
       </router-link>
     </div>
     <h1 style="margin-top: -58px; margin-bottom: 45px;">Lista de Pokémons</h1>
@@ -132,7 +132,8 @@ export default {
     color: #ff6347;
     border: 2px solid #ff6347;
     border-radius: 7px;
-    padding: 1.2em;
+    /* padding: 1.2em; */
+    padding: 1.2em 0.35em 1.2em 1em;
   }
   
   #backbutton:hover {
@@ -167,6 +168,10 @@ export default {
   .poke-img{
     height: 160px;
     width: 160px;
+  }
+
+  ul{
+    list-style: none;
   }
 
   </style>

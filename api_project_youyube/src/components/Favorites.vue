@@ -118,5 +118,9 @@
 .reset-btn:hover {
   background-color: darkred;
 }
+
+ul{
+  list-style: none;
+}
   </style>
   
