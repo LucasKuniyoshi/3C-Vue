@@ -83,6 +83,10 @@ export default {
     text-align: center;
     margin-bottom: 20px;
   }
+
+  a{
+    text-decoration: none;
+  }
   
   .fav{
     display: flex;
@@ -151,6 +155,13 @@ export default {
     /*flex-direction: row;*/
     flex-wrap: wrap;
     margin: 0;
+    border-radius: 7px;
+    background: url('../assets/PokemonBackground.jpeg');
+    background-size: cover; 
+    background-attachment: fixed; 
+    padding-bottom: 18%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Cria uma sombra suave */
+    transition: box-shadow 0.3s ease; /* Adiciona transição suave */
   }
 
   .pokemon-item{
@@ -163,6 +174,7 @@ export default {
 
   .poke-name{
     margin-top: -10px;
+    color: #000;
   }
 
   .poke-img{
@@ -172,6 +184,10 @@ export default {
 
   ul{
     list-style: none;
+  }
+
+  li{
+    background-color: #FFF;
   }
 
   </style>

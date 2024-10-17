@@ -65,8 +65,9 @@ nav a:hover {
 
 /* .bodyBackground{
   background: url('assets/PokemonBackground.jpeg');
-  height: auto;
-  width: auto;
-  scroll-behavior: auto;
+  background-size: cover; // Ajusta a imagem para cobrir o site
+  background-attachment: fixed; // Fixa o fundo enquanto o conteúdo rola
+  margin-top: 0.5%;
+  border-radius: 7px;
 } */
 </style>

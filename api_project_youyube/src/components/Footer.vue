@@ -18,17 +18,23 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     #footer {
         height: 100px;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: 97.3%;
         background-color: red;
         color: white;
-        margin: -7.8px;
-        /* margin-left: 0; */
+        /* margin-top: -5%; */
+        margin-left: 1.35%;
+        /* margin-right: 1.2%; */
+        /* margin: -7.8px; */
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Cria uma sombra suave */
+        transition: box-shadow 0.3s ease; /* Adiciona transição suave */
     }
     .img1{
         /* padding: -5%; */
@@ -41,9 +47,10 @@ export default {
         height: 100px;
         display: flex;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: center;
         width: 100%;
         margin-bottom: 55px;
+        margin-top: -15%;
     }
 
     .pokedle-border{
@@ -72,5 +79,10 @@ export default {
         color: #FFF;
         margin-left: 2px;
         padding: 1px;
+    }
+
+    .p1:hover{
+        color: gainsboro;
+        transition: .4s;
     }
 </style>
