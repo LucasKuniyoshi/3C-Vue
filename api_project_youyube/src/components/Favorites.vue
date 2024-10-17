@@ -128,6 +128,7 @@
     border-radius: 7px;
     padding: 1.2em;
     font-weight: bold;
+    padding-top: 1.24%;
   }
   
   #backbutton:hover {
@@ -150,8 +151,8 @@
   }
 
   .reset-btn {
-    display: inline-block;
-    /* margin-top: 10px; */
+    /* display: inline-block; */
+    margin-top: 10px;
     text-decoration: none;
     color: #ff6347;
     background-color: #FFF;
